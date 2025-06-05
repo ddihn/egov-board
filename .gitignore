@@ -1,24 +1,54 @@
-# Compiled class file
+# === Java ===
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
-*.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# === Maven ===
+target/
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# === Eclipse ===
+.project
+.classpath
+.settings/
+bin/
+
+# === IntelliJ (Optional) ===
+.idea/
+*.iml
+*.iws
+out/
+
+# === OS-specific ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# === Logs, temp ===
+*.log
+*.bak
+*.swp
+*.swo
+*.tmp
+
+# === eGovFrame-specific ===
+# Auto-generated message bundles
+.egovmessage.*
+
+# Generated artifacts (like from EgovSampleWeb)
+egovframework/com/cmm/utl/Egov*Temp*.*
+egovframework/com/cmm/utl/Egov*Sample*.*
+egovframework/com/cmm/utl/Egov*Generated*.*
+
+# === Security: Local-only config ===
+src/main/resources/application-*.properties
+src/main/resources/application-*.yml
+.env
