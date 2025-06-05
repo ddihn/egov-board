@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="context-datasource.xml"/>
+    <import resource="context-mybatis.xml"/>
+    <import resource="context-transaction.xml"/>
+
+    <context:component-scan base-package="board"/>
+    
+    <!-- properties 파일을 로딩 -->
+	<bean id="propertyConfigurer"
+		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:egovframework/egovProps/globals.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- EgovPropertyService 등록 -->
+	<bean id="propertiesService" class="org.egovframe.rte.fdl.property.impl.EgovPropertyServiceImpl">
+		<property name="properties">
+			<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+				<property name="locations">
+					<list>
+						<value>classpath:egovframework/egovProps/globals.properties</value>
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="messageSource"
+      class="org.springframework.context.support.ResourceBundleMessageSource">
+	    <property name="basename" value="message/message-common" />
+	    <property name="defaultEncoding" value="UTF-8" />
+	</bean>
+</beans>
