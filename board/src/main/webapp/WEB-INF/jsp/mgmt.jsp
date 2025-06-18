@@ -67,13 +67,18 @@
 		  <!-- 반드시 이 순서로 -->
 		  <input type="hidden" name="mode" value="${mode}" />
 		  <input type="hidden" name="idx" value="${boardVO.idx}" />
-        <div class="row mb-3">
-          <label class="col-sm-2 col-form-label">게시물 아이디:</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" value="${boardVO.idx}" />
-          </div>
-        </div>
-
+			<div class="row mb-3">
+			  <label class="col-sm-2 col-form-label">게시물 아이디:</label>
+			  <div class="col-sm-10">
+			    <input
+			      type="text"
+			      class="form-control"
+			      value="${not empty boardVO.idx ? boardVO.idx : ''}"
+			      readonly
+			      placeholder="자동 발번"
+			    />
+			  </div>
+			</div>
         <div class="row mb-3">
           <label for="title" class="col-sm-2 col-form-label">제목:</label>
           <div class="col-sm-10">

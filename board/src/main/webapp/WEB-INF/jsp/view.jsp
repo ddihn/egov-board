@@ -5,6 +5,10 @@
 
 <c:url var="replyURL" value="/reply.do" />
 <c:url var="mgmtURL" value="/mgmt.do" />
+<c:url var="mgmtModifyURL" value="/mgmt.do">
+  <c:param name="mode" value="modify"/>
+  <c:param name="idx"  value="${boardVO.idx}"/>
+</c:url>
 <c:url var="mainListURL" value="/mainList.do" />
 <!DOCTYPE html>
 <html>
@@ -30,8 +34,8 @@
 		document.form2.action = "${replyURL}";
 		document.form2.submit();
 	}
-	function modify(){
-		location.href = "${mgmtURL}";
+	function modify() {
+	    location.href = '${mgmtModifyURL}';
 	}
 	function del(){
 		var cnt = ${fn:length(resultList)};
@@ -50,7 +54,7 @@
 	}
   </script>
 </head>
-<body>
+<body> 
 <div class="container mt-4">
   <h1 class="mb-4">메인 화면</h1>
 

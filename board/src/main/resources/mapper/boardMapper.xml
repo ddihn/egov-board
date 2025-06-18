@@ -22,17 +22,13 @@
     </select>
 
     <!-- 게시판 등록 -->
-    <insert id="insertBoard" parameterType="BoardVO">
-        INSERT INTO TBL_BOARD
-            (IDX, TITLE, CONTENTS, COUNT, WRITER, INDATE)
-        VALUES
-            (NULL,
-             #{title, jdbcType=VARCHAR},
-             #{contents, jdbcType=VARCHAR},
-             #{count, jdbcType=VARCHAR},
-             #{writer, jdbcType=VARCHAR},
-             SYSDATE())
-    </insert>
+   <insert id="insertBoard" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="idx">
+	  INSERT INTO TBL_BOARD
+	      (TITLE, CONTENTS, WRITER)
+	  VALUES
+	      (#{title}, #{contents}, #{writer})
+	</insert>
+	
 
     <!-- 게시판 수정 -->
     <update id="updateBoard">
